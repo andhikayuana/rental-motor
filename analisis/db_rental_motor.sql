@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 29, 2015 at 02:54 
+-- Generation Time: Oct 30, 2015 at 03:37 
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -65,14 +65,15 @@ CREATE TABLE IF NOT EXISTS `tb_motor` (
   `th_keluar` year(4) NOT NULL,
   `by_sewa` int(11) NOT NULL,
   `gambar` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `tb_motor`
 --
 
 INSERT INTO `tb_motor` (`id_motor`, `nama_motor`, `th_keluar`, `by_sewa`, `gambar`) VALUES
-(1, 'supra x', 2005, 50000, 'gambar_');
+(1, 'supra x', 2005, 50000, '250px-Honda_Supra_X_125.jpg'),
+(2, 'Jupiter MX', 2006, 75000, 'New-MX-MotoGP_01.png');
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `tb_pelanggan` (
   `alamat` text NOT NULL,
   `telp` varchar(255) NOT NULL,
   `identitas` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `tb_pelanggan`
@@ -110,7 +111,8 @@ CREATE TABLE IF NOT EXISTS `tb_pelanggan` (
 INSERT INTO `tb_pelanggan` (`id_pelanggan`, `nama`, `alamat`, `telp`, `identitas`) VALUES
 (1, 'Jarjit Singh', 'Timoho', '085789456123', '123456'),
 (2, 'Ismail Bin Mail', 'Glagahsari', '085753159', '654321'),
-(3, 'Upin', 'Demangan', '085759153', '321654');
+(3, 'Upin', 'Demangan', '085759153', '321654'),
+(4, 'Atuk', 'Prambanan', '085183749', '461352');
 
 -- --------------------------------------------------------
 
@@ -186,7 +188,7 @@ MODIFY `id_kembali` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `tb_motor`
 --
 ALTER TABLE `tb_motor`
-MODIFY `id_motor` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_motor` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tb_operator`
 --
@@ -196,7 +198,7 @@ MODIFY `id_operator` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
-MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tb_sewa`
 --

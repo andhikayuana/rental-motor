@@ -300,7 +300,8 @@ class Upload
     
     static function getFileExtension($file)
     {    
-        return strtolower(end(explode('.', $file)));
+        $arr = explode('.', $file);
+        return end($arr);
     }
     
     /**

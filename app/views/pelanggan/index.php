@@ -26,7 +26,7 @@
                                     <th>Alamat</th>
                                     <th>Telepon</th>
                                     <th>Identitas</th>
-                                    <th width="130">Aksi</th>
+                                    <th width="80">Aksi</th>
                                 </tr>
                             </thead>
                             
@@ -39,9 +39,8 @@
                                         <td><?=$row->telp;?></td>
                                         <td><?=$row->identitas;?></td>
                                         <td>
-                                            <a href="#" class="btn btn-primary"><i class="fa fa-fw fa-eye"></i></a>
                                             <a href="<?=$this->location('pelanggan/update/'.$row->id_pelanggan);?>" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></a>
-                                            <a href="#" class="btn btn-danger"><i class="fa fa-fw fa-remove"></i></a>
+                                            <a href="<?=$this->location('pelanggan/delete/'.$row->id_pelanggan);?>" class="btn btn-danger" onclick="return confirm('Hapus data?');"><i class="fa fa-fw fa-remove"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

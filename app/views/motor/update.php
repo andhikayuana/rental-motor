@@ -15,7 +15,7 @@
                 
                 <div class="row">
                     <div class="col-lg-12">
-                        <?php $this->outputPartial('motor/_form'); ?>
+                        <?php $this->outputPartial('motor/_form',['url'=>$this->location('motor/update/'.$model->id_motor),'model'=>$model]); ?>
                     </div>
                 </div>
                 <!-- /.row -->

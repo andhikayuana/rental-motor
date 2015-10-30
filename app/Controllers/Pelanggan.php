@@ -20,13 +20,6 @@ class Pelanggan extends Resources\Controller
         $this->output('pelanggan/index', $data); 
     }
 
-    public function view($id)
-    {
-        # code...
-
-        $this->output('pelanggan/view');
-    }
-
     public function create()
     {
         if ($this->request->POST('submit')==1) {
@@ -37,7 +30,7 @@ class Pelanggan extends Resources\Controller
             $this->model->identitas = $this->request->POST('identitas',FILTER_SANITIZE_MAGIC_QUOTES);
             $this->model->save();
 
-            $this->redirect('pelanggan/index');
+            $this->redirect('pelanggan');
 
         }
         else{
@@ -47,14 +40,48 @@ class Pelanggan extends Resources\Controller
 
     public function update($id)
     {
-        $data['model'] = $this->model->get($id);
+        if (!empty($id) && is_numeric($id)) {
 
-        $this->output('pelanggan/update',$data);
+            if ($this->request->POST('submit')==1) {
+                
+                $this->model->nama = $this->request->POST('nama',FILTER_SANITIZE_MAGIC_QUOTES);
+                $this->model->alamat = $this->request->POST('alamat',FILTER_SANITIZE_MAGIC_QUOTES);
+                $this->model->telp = $this->request->POST('telp',FILTER_SANITIZE_MAGIC_QUOTES);
+                $this->model->identitas = $this->request->POST('identitas',FILTER_SANITIZE_MAGIC_QUOTES);
+                $this->model->update(['id_pelanggan'=>$id]);
+
+                $this->redirect('pelanggan');
+
+            }
+            else{
+
+                $data['model'] = $this->model->condition('id_pelanggan','=',$id)->get();
+
+                foreach ($data['model'] as $row) {
+                    $data['model'] = $row;
+                }
+
+                $this->output('pelanggan/update',$data);    
+            }
+
+        }
+        else{
+            $this->redirect('pelanggan');
+        }
+        
     }
 
-    public function delete()
+    public function delete($id)
     {
-        # code...
+        if (!empty($id) && is_numeric($id)) {
+            
+            $this->model->delete(['id_pelanggan'=>$id]);
+
+            $this->redirect('pelanggan');
+        }
+        else{
+            $this->redirect('pelanggan');
+        }
     }
 
 }

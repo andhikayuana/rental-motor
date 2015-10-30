@@ -15,7 +15,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <?php $this->outputPartial('pelanggan/_form',$data = array('url'=>$this->location('pelanggan/create'))); ?>
+                        <?php $this->outputPartial('pelanggan/_form',['url'=>$this->location('pelanggan/create')]); ?>
                     </div>
                 </div>
                 <!-- /.row -->

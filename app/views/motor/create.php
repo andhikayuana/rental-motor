@@ -15,7 +15,7 @@
                 
                 <div class="row">
                     <div class="col-lg-12">
-                        <?php $this->outputPartial('motor/_form'); ?>
+                        <?php $this->outputPartial('motor/_form',['url'=>$this->location('motor/create')]); ?>
                     </div>
                 </div>
                 <!-- /.row -->
