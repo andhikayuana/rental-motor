@@ -15,7 +15,7 @@
                 
                 <div class="row">
                     <div class="col-lg-12">
-                        <?php $this->outputPartial('inventaris/_form'); ?>
+                        <?php $this->outputPartial('inventaris/_form',['url'=> $this->location('inventaris/create'),'listMotor'=>$listMotor]); ?>
                     </div>
                 </div>
                 <!-- /.row -->
