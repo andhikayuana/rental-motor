@@ -21,7 +21,7 @@
                                         <i class="fa fa-users fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
+                                        <div class="huge"><?=$jmlPelanggan;?></div>
                                         <div>Data Pelanggan</div>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                         <i class="fa fa-tasks fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
+                                        <div class="huge"><?=$jmlInventaris;?></div>
                                         <div>Inventaris</div>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                                         <i class="fa fa-forward fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
+                                        <div class="huge"><?=$jmlPeminjaman;?></div>
                                         <div>Peminjaman</div>
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@
                                         <i class="fa fa-backward fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
+                                        <div class="huge"><?=$jmlPengembalian;?></div>
                                         <div>Pengembalian</div>
                                     </div>
                                 </div>
