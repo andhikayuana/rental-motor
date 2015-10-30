@@ -37,7 +37,7 @@
                                     <td><?=$row->nama_motor;?></td>
                                     <td><?=$row->th_keluar;?></td>
                                     <td><?=$row->by_sewa;?></td>
-                                    <td><?=$row->gambar;?></td>
+                                    <td><img src="<?=$this->uri->baseUri.'uploads/'.$row->gambar;?>" width="80"></td>
                                     <td>
                                         <a href="<?=$this->location('motor/update/'.$row->id_motor);?>" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></a>
                                         <a href="<?=$this->location('motor/delete/'.$row->id_motor);?>" class="btn btn-danger" onclick="return confirm('Hapus data?');"><i class="fa fa-fw fa-remove"></i></a>
