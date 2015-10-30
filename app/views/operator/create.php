@@ -15,7 +15,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <?php $this->outputPartial('operator/_form'); ?>
+                        <?php $this->outputPartial('operator/_form',['url'=>$this->location('operator/create')]); ?>
                     </div>
                 </div>
                 <!-- /.row -->
