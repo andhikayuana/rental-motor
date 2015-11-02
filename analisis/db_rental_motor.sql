@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 30, 2015 at 03:37 
+-- Generation Time: Nov 02, 2015 at 05:24 
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -31,14 +31,15 @@ CREATE TABLE IF NOT EXISTS `tb_inventaris` (
   `id_motor` int(11) NOT NULL,
   `no_polisi` varchar(255) NOT NULL,
   `no_mesin` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `tb_inventaris`
 --
 
 INSERT INTO `tb_inventaris` (`id_inventaris`, `id_motor`, `no_polisi`, `no_mesin`) VALUES
-(1, 1, 'g 111', 'abc123');
+(1, 1, 'g 111', 'abc123'),
+(2, 2, 'AB 888', 'cde321');
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `tb_motor` (
   `th_keluar` year(4) NOT NULL,
   `by_sewa` int(11) NOT NULL,
   `gambar` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `tb_motor`
@@ -88,7 +89,15 @@ CREATE TABLE IF NOT EXISTS `tb_operator` (
   `alamat` text NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `tb_operator`
+--
+
+INSERT INTO `tb_operator` (`id_operator`, `nama`, `jk`, `alamat`, `username`, `password`) VALUES
+(1, 'Andhika Yuana', 'L', 'Timoho', 'yuana', 'andhika'),
+(2, 'Ros', 'P', 'Gowok', 'ros', '1234');
 
 -- --------------------------------------------------------
 
@@ -102,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `tb_pelanggan` (
   `alamat` text NOT NULL,
   `telp` varchar(255) NOT NULL,
   `identitas` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `tb_pelanggan`
@@ -128,7 +137,16 @@ CREATE TABLE IF NOT EXISTS `tb_sewa` (
   `tgl_mulai` datetime NOT NULL,
   `tgl_akhir` datetime NOT NULL,
   `id_inventaris` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `tb_sewa`
+--
+
+INSERT INTO `tb_sewa` (`id_sewa`, `tgl_sewa`, `id_pelanggan`, `jaminan`, `tgl_mulai`, `tgl_akhir`, `id_inventaris`) VALUES
+(1, '2015-11-02 00:00:00', 1, 'smartphone xiaomi redmi 2', '2015-11-02 00:00:00', '2015-11-04 00:00:00', 2),
+(2, '2015-11-02 00:00:00', 2, 'uang satu juta', '2015-11-02 00:00:00', '2015-11-09 00:00:00', 1),
+(3, '2015-11-02 00:00:00', 4, 'uang 500 ribu', '2015-11-02 00:00:00', '2015-11-03 00:00:00', 1);
 
 --
 -- Indexes for dumped tables
@@ -178,7 +196,7 @@ ALTER TABLE `tb_sewa`
 -- AUTO_INCREMENT for table `tb_inventaris`
 --
 ALTER TABLE `tb_inventaris`
-MODIFY `id_inventaris` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_inventaris` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tb_kembali`
 --
@@ -188,22 +206,22 @@ MODIFY `id_kembali` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `tb_motor`
 --
 ALTER TABLE `tb_motor`
-MODIFY `id_motor` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_motor` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tb_operator`
 --
 ALTER TABLE `tb_operator`
-MODIFY `id_operator` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_operator` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
-MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tb_sewa`
 --
 ALTER TABLE `tb_sewa`
-MODIFY `id_sewa` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_sewa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
