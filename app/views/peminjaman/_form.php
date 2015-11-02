@@ -12,7 +12,7 @@
                     <select class="form-control" id="pelanggan" name="pelanggan" required onchange="getPelanggan($(this).val())">
                         <option value=""> - Pilih - </option>
                         <?php foreach ($listPelanggan as $row): ?>
-                            <?php if (isset($mode) && $row->id_pelanggan == $model->id_pelanggan): ?>
+                            <?php if (isset($model) && $row->id_pelanggan == $model->id_pelanggan): ?>
                                 <option value="<?=$row->id_pelanggan;?>" selected><?=$row->nama;?></option>
                             <?php else: ?>
                                 <option value="<?=$row->id_pelanggan;?>"><?=$row->nama;?></option>
