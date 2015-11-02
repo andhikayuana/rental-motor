@@ -9,6 +9,16 @@ class Sewa extends Resources\ActiveRecord {
         call_user_func_array( 'parent::__construct', func_get_args() );
 	
 		$this->table = 'tb_sewa';
+		$this->primaryKey = 'id_sewa';
         
     }
+
+    public function relations(){
+        
+        return array(
+            'pelanggan' => array(self::BELONGS_TO, 'Pelanggan', 'id_pelanggan'),
+            'inventaris' => array(self::BELONGS_TO, 'Inventaris', 'id_inventaris'),
+        );
+    }
+
 }

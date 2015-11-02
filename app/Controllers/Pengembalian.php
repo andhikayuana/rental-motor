@@ -11,13 +11,6 @@ class Pengembalian extends Resources\Controller
         $this->output('pengembalian/index', $data); 
     }
 
-    public function view($id)
-    {
-        # code...
-
-        $this->output('pengembalian/view');
-    }
-
     public function create()
     {
         # code...
@@ -25,14 +18,14 @@ class Pengembalian extends Resources\Controller
         $this->output('pengembalian/create');
     }
 
-    public function update()
+    public function update($id)
     {
         # code...
 
         $this->output('pengembalian/update');
     }
 
-    public function delete()
+    public function delete($id)
     {
         # code...
     }

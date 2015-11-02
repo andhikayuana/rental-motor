@@ -18,6 +18,8 @@
 
     <link rel="stylesheet" type="text/css" href="<?=$this->uri->baseUri;?>assets/css/jquery.dataTables.css">
 
+    <link rel="stylesheet" type="text/css" href="<?=$this->uri->baseUri;?>assets/css/bootstrap-datepicker.min.css">
+
     <!-- Custom CSS -->
     <link href="<?=$this->uri->baseUri;?>assets/css/sb-admin.css" rel="stylesheet">
 
@@ -43,6 +45,8 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="<?=$this->uri->baseUri;?>assets/js/bootstrap.min.js"></script>
 
+    <script src="<?=$this->uri->baseUri;?>assets/js/bootstrap-datepicker.min.js"></script>
+
     <!-- Morris Charts JavaScript -->
     <script src="<?=$this->uri->baseUri;?>assets/js/plugins/morris/raphael.min.js"></script>
     <script src="<?=$this->uri->baseUri;?>assets/js/plugins/morris/morris.min.js"></script>
@@ -50,7 +54,43 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#dataTable").DataTable();
+
+            $('#tgl_mulai').datepicker({
+                format: "yyyy-mm-dd",
+                todayBtn: "linked"
+            });
+
+            $('#tgl_akhir').datepicker({
+                format: "yyyy-mm-dd",
+                todayBtn: "linked"
+            });
         } );
+
+        function getPelanggan (id) {
+            $.ajax({
+                url:'<?=$this->location("peminjaman/getpelanggan/");?>'+id,
+                type:'post',
+                data:'id_pelanggan='+id,
+                dataType:'json',
+                success:function(d){
+                    $('#frm_peminjaman #alamat').val(d.pelanggan[0].alamat);
+                }
+            })
+        }
+
+        function getInventaris (id) {
+            $.ajax({
+                url:'<?=$this->location("peminjaman/getinventaris/");?>'+id,
+                type:'post',
+                data:'id_inventaris='+id,
+                dataType:'json',
+                success:function(d){
+                    $('#frm_peminjaman #hrg_sewa').val(d.inventaris.hrg_sewa);
+                    $('#frm_peminjaman #no_polisi').val(d.inventaris.no_polisi);
+                    $('#frm_peminjaman #no_mesin').val(d.inventaris.no_mesin);
+                }
+            })
+        }
     </script>
 
 </head>

@@ -21,29 +21,33 @@
                         <table id="dataTable" class="display" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th width="130">Aksi</th>
+                                    <th>No</th>
+                                    <th>Tgl Sewa</th>
+                                    <th>Pelanggan</th>
+                                    <th>Jaminan</th>
+                                    <th>Tgl Mulai</th>
+                                    <th>Tgl Akhir</th>
+                                    <th>Inventaris</th>
+                                    <th width="80">Aksi</th>
                                 </tr>
                             </thead>
                             
                             <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>
-                                        <a href="#" class="btn btn-primary"><i class="fa fa-fw fa-eye"></i></a>
-                                        <a href="<?=$this->location('peminjaman/update');?>" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></a>
-                                        <a href="#" class="btn btn-danger"><i class="fa fa-fw fa-remove"></i></a>
-                                    </td>
-                                </tr>
-
+                                <?php foreach ($model as $row): ?>
+                                    <tr>
+                                        <td><?=$row->id_sewa;?></td>
+                                        <td><?=date('Y-m-d',strtotime($row->tgl_sewa)) ;?></td>
+                                        <td><?=$row->pelanggan->nama;?></td>
+                                        <td><?=$row->jaminan;?></td>
+                                        <td><?=date('Y-m-d',strtotime($row->tgl_mulai));?></td>
+                                        <td><?=date('Y-m-d',strtotime($row->tgl_akhir));?></td>
+                                        <td><?=$row->inventaris->motor->nama_motor;?></td>
+                                        <td>
+                                            <a href="<?=$this->location('peminjaman/update/'.$row->id_sewa);?>" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></a>
+                                            <a href="<?=$this->location('peminjaman/delete/'.$row->id_sewa);?>" class="btn btn-danger"  onclick="return confirm('Hapus data?');"><i class="fa fa-fw fa-remove"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
                             </tbody>
                         </table>
                     </div>

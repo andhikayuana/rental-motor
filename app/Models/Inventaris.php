@@ -16,7 +16,8 @@ class Inventaris extends Resources\ActiveRecord {
     public function relations(){
         
         return array(
-            'motor' => array(self::BELONGS_TO, 'Motor', 'id_motor')
+            'motor' => array(self::BELONGS_TO, 'Motor', 'id_motor'),
+            'sewa' => array(self::BELONGS_TO, 'Sewa', 'id_motor'),
         );
     }
 }

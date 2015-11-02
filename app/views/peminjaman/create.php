@@ -15,7 +15,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <?php $this->outputPartial('peminjaman/_form'); ?>
+                        <?php $this->outputPartial('peminjaman/_form',['url'=>$this->location('peminjaman/create'),'listPelanggan'=>$listPelanggan,'listInventaris'=>$listInventaris]); ?>
                     </div>
                 </div>
                 <!-- /.row -->
