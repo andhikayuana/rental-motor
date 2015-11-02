@@ -26,7 +26,7 @@
                                     <th>Office</th>
                                     <th>Age</th>
                                     <th>Start date</th>
-                                    <th width="130">Aksi</th>
+                                    <th width="80">Aksi</th>
                                 </tr>
                             </thead>
                             
@@ -38,7 +38,6 @@
                                     <td>61</td>
                                     <td>2011/04/25</td>
                                     <td>
-                                        <a href="#" class="btn btn-primary"><i class="fa fa-fw fa-eye"></i></a>
                                         <a href="<?=$this->location('pengembalian/update');?>" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></a>
                                         <a href="#" class="btn btn-danger"><i class="fa fa-fw fa-remove"></i></a>
                                     </td>
