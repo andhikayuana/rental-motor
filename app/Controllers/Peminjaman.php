@@ -116,11 +116,9 @@ class Peminjaman extends Resources\Controller
     {
         if (!empty($id) && is_numeric($id)) {
 
-            $modelPelanggan = new Models\Inventaris;
             $data['msg'] = 'success';
 
             $inventaris = $this->modelInventaris->get($id);
-
 
             $data['inventaris'] = [
                 'hrg_sewa' => $inventaris->motor->by_sewa,

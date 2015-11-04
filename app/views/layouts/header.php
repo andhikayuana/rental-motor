@@ -64,6 +64,12 @@
                 format: "yyyy-mm-dd",
                 todayBtn: "linked"
             });
+
+            $('#tgl_kembali').datepicker({
+                format: "yyyy-mm-dd",
+                todayBtn: "linked"
+            });
+
         } );
 
         function getPelanggan (id) {
@@ -90,6 +96,26 @@
                     $('#frm_peminjaman #no_mesin').val(d.inventaris.no_mesin);
                 }
             })
+        }
+
+        function getPeminjaman (id) {
+            $.ajax({
+                url:'<?=$this->location("pengembalian/getpeminjaman/");?>'+id,
+                type:'post',
+                data:'id_peminjaman='+id,
+                dataType:'json',
+                success:function (d) {
+                    $('#frm_pengembalian #pelanggan').val(d.peminjaman.pelanggan);
+                    $('#frm_pengembalian #alamat').val(d.peminjaman.alamat);
+                    $('#frm_pengembalian #jaminan').val(d.peminjaman.jaminan);
+                    $('#frm_pengembalian #tgl_mulai').val(d.peminjaman.tgl_mulai);
+                    $('#frm_pengembalian #tgl_akhir').val(d.peminjaman.tgl_akhir);
+                    $('#frm_pengembalian #inventaris').val(d.peminjaman.inventaris);
+                    $('#frm_pengembalian #no_polisi').val(d.peminjaman.no_polisi);
+                    $('#frm_pengembalian #no_mesin').val(d.peminjaman.no_mesin);
+                    $('#frm_pengembalian #hrg_sewa').val(d.peminjaman.hrg_sewa);
+                }
+            });
         }
     </script>
 

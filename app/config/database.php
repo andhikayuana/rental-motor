@@ -7,7 +7,7 @@ return array(
         'host' => 'localhost',
         'port' => 3306,
         'user' => 'root',
-        'password' => '',
+        'password' => 'programmer',
         'database' => 'db_rental_motor',
         'tablePrefix' => '',
         'charset' => 'utf8',
