@@ -16,23 +16,57 @@ class Pengembalian extends Resources\Controller
 
     public function index()
     {    
-        $data['title'] = 'Hello world!';
+        $data['model'] = $this->model->get();
         
         $this->output('pengembalian/index', $data); 
     }
 
     public function create()
     {
-        $data['listPeminjaman'] = $this->modelPeminjaman->get();
+        if ($this->request->POST('submit')==1) {
+            
+            $this->model->id_sewa = $this->request->POST('peminjaman',FILTER_SANITIZE_MAGIC_QUOTES);
+            $this->model->tgl_kembali = $this->request->POST('tgl_kembali',FILTER_SANITIZE_MAGIC_QUOTES);
+            $this->model->denda = $this->request->POST('denda',FILTER_SANITIZE_MAGIC_QUOTES);
 
-        $this->output('pengembalian/create',$data);
+            $this->model->save();
+
+            $this->redirect('pengembalian');
+        }
+        else{
+
+            $data['listPeminjaman'] = $this->modelPeminjaman->get();
+            
+            $this->output('pengembalian/create',$data);
+        }
     }
 
     public function update($id)
     {
-        # code...
+        if (!empty($id) && is_numeric($id)) {
 
-        $this->output('pengembalian/update');
+            if ($this->request->POST('submit')==1) {
+                
+                $this->model->id_sewa = $this->request->POST('peminjaman',FILTER_SANITIZE_MAGIC_QUOTES);
+                $this->model->tgl_kembali = $this->request->POST('tgl_kembali',FILTER_SANITIZE_MAGIC_QUOTES);
+                $this->model->denda = $this->request->POST('denda',FILTER_SANITIZE_MAGIC_QUOTES);
+
+                $this->model->update(['id_kembali'=>$id]);
+
+                $this->redirect('pengembalian');
+            }
+            else{
+
+                $data['listPeminjaman'] = $this->modelPeminjaman->get();
+
+                $data['model'] = $this->model->get($id);
+
+                $this->output('pengembalian/update',$data);
+            }
+        }
+        else{
+            $this->redirect('pengembalian');
+        }
     }
 
     public function delete($id)

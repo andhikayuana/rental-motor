@@ -15,7 +15,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <?php $this->outputPartial('pengembalian/_form'); ?>
+                        <?php $this->outputPartial('pengembalian/_form',['url'=>$this->location('pengembalian/update/'.$model->id_kembali),'model'=>$model,'listPeminjaman'=>$listPeminjaman]); ?>
                     </div>
                 </div>
                 <!-- /.row -->

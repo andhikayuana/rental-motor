@@ -18,6 +18,7 @@ class Sewa extends Resources\ActiveRecord {
         return array(
             'pelanggan' => array(self::BELONGS_TO, 'Pelanggan', 'id_pelanggan'),
             'inventaris' => array(self::BELONGS_TO, 'Inventaris', 'id_inventaris'),
+            'kembali'=>array(self::BELONGS_TO,'kembali','id_sewa'),
         );
     }
 

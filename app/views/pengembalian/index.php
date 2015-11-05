@@ -21,27 +21,31 @@
                         <table id="dataTable" class="display" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
+                                    <th>No</th>
+                                    <th>Pelanggan</th>
+                                    <th>Inventaris</th>
+                                    <th>Tgl Akhir</th>
+                                    <th>Tgl Kembali</th>
+                                    <th>Denda</th>
                                     <th width="80">Aksi</th>
                                 </tr>
                             </thead>
                             
                             <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>
-                                        <a href="<?=$this->location('pengembalian/update');?>" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></a>
-                                        <a href="#" class="btn btn-danger"><i class="fa fa-fw fa-remove"></i></a>
-                                    </td>
-                                </tr>
+                                <?php foreach ($model as $row): ?>
+                                    <tr>
+                                        <td><?=$row->id_kembali;?></td>
+                                        <td><?=$row->sewa->pelanggan->nama;?></td>
+                                        <td><?=$row->sewa->inventaris->motor->nama_motor;?></td>
+                                        <td><?=date('Y-m-d',strtotime($row->sewa->tgl_akhir));?></td>
+                                        <td><?=date('Y-m-d',strtotime($row->tgl_kembali));?></td>
+                                        <td><?=$row->denda;?></td>
+                                        <td>
+                                            <a href="<?=$this->location('pengembalian/update/'.$row->id_kembali);?>" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></a>
+                                            <a href="<?=$this->location('pengembalian/delete/'.$row->id_kembali);?>" class="btn btn-danger"  onclick="return confirm('Hapus data?');"><i class="fa fa-fw fa-remove"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
 
                             </tbody>
                         </table>
