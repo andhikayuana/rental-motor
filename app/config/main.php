@@ -6,7 +6,8 @@ return array(
     'name' => 'SI Rental Motor',
     
     // Just put null value if you has enable .htaccess file
-    'indexFile' => INDEX_FILE . '/',
+    // 'indexFile' => INDEX_FILE . '/',
+    'indexFile' => null,
     
     'module' => array(
         'path' => APP,
