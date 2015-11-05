@@ -60,13 +60,13 @@ class Pengembalian extends Resources\Controller
                 'no_mesin' => $peminjaman->inventaris->no_mesin,
             ];
 
-            echo json_encode($data);
         }
         else{
             $data['msg'] = 'failed';
 
-            echo json_encode($data);
         }
+
+        echo json_encode($data);
     }
 
 }

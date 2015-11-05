@@ -102,14 +102,12 @@ class Peminjaman extends Resources\Controller
 
             $data['msg'] = 'success';
             $data['pelanggan'] = $this->modelPelanggan->condition('id_pelanggan','=',$id)->get();
-
-            echo json_encode($data);
         }
         else{
             $data['msg'] = 'failed';
-
-            echo json_encode($data);
         }
+
+        echo json_encode($data);
     }
 
     public function getInventaris($id)
@@ -125,14 +123,12 @@ class Peminjaman extends Resources\Controller
                 'no_polisi' => $inventaris->no_polisi,
                 'no_mesin' => $inventaris->no_mesin,
             ];
-
-            echo json_encode($data);
         }
         else{
             $data['msg'] = 'failed';
-
-            echo json_encode($data);
         }
+        
+        echo json_encode($data);
     }
 
 }
