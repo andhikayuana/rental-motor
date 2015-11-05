@@ -73,47 +73,87 @@
         } );
 
         function getPelanggan (id) {
+            var alamat = $('#frm_peminjaman #alamat');
             $.ajax({
                 url:'<?=$this->location("peminjaman/getpelanggan/");?>'+id,
                 type:'post',
                 data:'id_pelanggan='+id,
                 dataType:'json',
                 success:function(d){
-                    $('#frm_peminjaman #alamat').val(d.pelanggan[0].alamat);
+                    if (d.msg=='failed') {
+                        alamat.val('');
+                    }
+                    else{
+                        alamat.val(d.pelanggan[0].alamat);
+                    }
                 }
             })
         }
 
         function getInventaris (id) {
+            var hrg_sewa = $('#frm_peminjaman #hrg_sewa');
+            var no_polisi = $('#frm_peminjaman #no_polisi');
+            var no_mesin = $('#frm_peminjaman #no_mesin');
+
             $.ajax({
                 url:'<?=$this->location("peminjaman/getinventaris/");?>'+id,
                 type:'post',
                 data:'id_inventaris='+id,
                 dataType:'json',
                 success:function(d){
-                    $('#frm_peminjaman #hrg_sewa').val(d.inventaris.hrg_sewa);
-                    $('#frm_peminjaman #no_polisi').val(d.inventaris.no_polisi);
-                    $('#frm_peminjaman #no_mesin').val(d.inventaris.no_mesin);
+                    if (d.msg=='failed') {
+                        hrg_sewa.val('');
+                        no_polisi.val('');
+                        no_mesin.val('');
+                    }
+                    else{
+                        hrg_sewa.val(d.inventaris.hrg_sewa);
+                        no_polisi.val(d.inventaris.no_polisi);
+                        no_mesin.val(d.inventaris.no_mesin);
+                    }
                 }
             })
         }
 
         function getPeminjaman (id) {
+            var pelanggan = $('#frm_pengembalian #pelanggan');
+            var alamat = $('#frm_pengembalian #alamat');
+            var jaminan = $('#frm_pengembalian #jaminan');
+            var tgl_mulai = $('#frm_pengembalian #tgl_mulai');
+            var tgl_akhir = $('#frm_pengembalian #tgl_akhir');
+            var inventaris = $('#frm_pengembalian #inventaris');
+            var no_polisi = $('#frm_pengembalian #no_polisi');
+            var no_mesin = $('#frm_pengembalian #no_mesin');
+            var hrg_sewa = $('#frm_pengembalian #hrg_sewa');
+
             $.ajax({
                 url:'<?=$this->location("pengembalian/getpeminjaman/");?>'+id,
                 type:'post',
                 data:'id_peminjaman='+id,
                 dataType:'json',
                 success:function (d) {
-                    $('#frm_pengembalian #pelanggan').val(d.peminjaman.pelanggan);
-                    $('#frm_pengembalian #alamat').val(d.peminjaman.alamat);
-                    $('#frm_pengembalian #jaminan').val(d.peminjaman.jaminan);
-                    $('#frm_pengembalian #tgl_mulai').val(d.peminjaman.tgl_mulai);
-                    $('#frm_pengembalian #tgl_akhir').val(d.peminjaman.tgl_akhir);
-                    $('#frm_pengembalian #inventaris').val(d.peminjaman.inventaris);
-                    $('#frm_pengembalian #no_polisi').val(d.peminjaman.no_polisi);
-                    $('#frm_pengembalian #no_mesin').val(d.peminjaman.no_mesin);
-                    $('#frm_pengembalian #hrg_sewa').val(d.peminjaman.hrg_sewa);
+                    if (d.msg=='failed') {
+                        pelanggan.val('');
+                        alamat.val('');
+                        jaminan.val('');
+                        tgl_mulai.val('');
+                        tgl_akhir.val('');
+                        inventaris.val('');
+                        no_polisi.val('');
+                        no_mesin.val('');
+                        hrg_sewa.val('');
+                    }
+                    else{
+                        pelanggan.val(d.peminjaman.pelanggan);
+                        alamat.val(d.peminjaman.alamat);
+                        jaminan.val(d.peminjaman.jaminan);
+                        tgl_mulai.val(d.peminjaman.tgl_mulai);
+                        tgl_akhir.val(d.peminjaman.tgl_akhir);
+                        inventaris.val(d.peminjaman.inventaris);
+                        no_polisi.val(d.peminjaman.no_polisi);
+                        no_mesin.val(d.peminjaman.no_mesin);
+                        hrg_sewa.val(d.peminjaman.hrg_sewa);
+                    }
                 }
             });
         }
