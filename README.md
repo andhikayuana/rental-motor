@@ -10,7 +10,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L,QSA]
 ```
-2.create `db_rental_motor` databse using phpmyadmin or whatever and import `db_rental_motro.sql` on `analisis/`
+2.create `db_rental_motor` databse using phpmyadmin or whatever and import `db_rental_motor.sql` on `analisis/`
 ------------------------------------
 
 3.create `database.php` on app/config directory
