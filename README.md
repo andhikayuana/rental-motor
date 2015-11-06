@@ -12,7 +12,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L,QSA]
 ```
 ----------------------------------
-
 1.b. create `database.php` on app/config directory
 ------------------------------------
 ```
