@@ -2,7 +2,7 @@
 ---------------------
 
 1.create `.htaccess` on app/ directory
-----------------------------------
+
 ```
 RewriteEngine On
 RewriteBase /your_root_web/app/
