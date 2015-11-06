@@ -1,7 +1,7 @@
 # rental-motor
 ---------------------
-1. Setup
-1.a.create `.htaccess` on app/ directory
+
+1.create `.htaccess` on app/ directory
 ----------------------------------
 ```
 RewriteEngine On
@@ -11,8 +11,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L,QSA]
 ```
-----------------------------------
-1.b. create `database.php` on app/config directory
+
+2.create `database.php` on app/config directory
 ------------------------------------
 ```
 <?php
