@@ -13,6 +13,10 @@ class Peminjaman extends Resources\Controller
         $this->modelPelanggan = new Models\Pelanggan;
         $this->modelInventaris = new Models\Inventaris;
         $this->request = new Resources\Request;
+
+        if (empty($this->session->getValue('id_operator'))) {
+            $this->redirect('home');
+        }
     }
 
     public function index()

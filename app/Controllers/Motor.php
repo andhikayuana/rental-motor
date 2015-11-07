@@ -12,6 +12,10 @@ class Motor extends Resources\Controller
         $this->model = new Models\Motor;
         $this->request = new Resources\Request;
         $this->upload = new Resources\Upload;
+
+        if (empty($this->session->getValue('id_operator'))) {
+            $this->redirect('home');
+        }
     }
 
     public function index()

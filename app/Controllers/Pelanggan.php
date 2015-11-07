@@ -11,6 +11,10 @@ class Pelanggan extends Resources\Controller
         $this->session = new Resources\Session();
         $this->model = new Models\Pelanggan;
         $this->request = new Resources\Request;
+
+        if (empty($this->session->getValue('id_operator'))) {
+            $this->redirect('home');
+        }
     }
 
     public function index()

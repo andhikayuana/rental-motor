@@ -12,6 +12,10 @@ class Pengembalian extends Resources\Controller
         $this->model = new Models\Kembali;
         $this->modelPeminjaman = new Models\Sewa;
         $this->request = new Resources\Request;
+
+        if (empty($this->session->getValue('id_operator'))) {
+            $this->redirect('home');
+        }
     }
 
     public function index()

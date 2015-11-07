@@ -23,17 +23,20 @@
                         <h3 class="panel-title" align="center">SI Rental Motor</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" id="frm_login" name="frm_login" method="post" action="<?=$url;?>">
                             <fieldset>
+                                <div>
+                                    <?=(isset($error))?$error:'';?>
+                                </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+                                    <input class="form-control" placeholder="Username" name="username" type="text" autofocus="">
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="#" class="btn btn-lg btn-success btn-block">Login</a>
+                                <button type="submit" name="login" value="1" class="btn btn-lg btn-success btn-block">Login</button>
                             </fieldset>
                         </form>
                     </div>
