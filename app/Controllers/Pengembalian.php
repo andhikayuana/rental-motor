@@ -75,7 +75,15 @@ class Pengembalian extends Resources\Controller
 
     public function delete($id)
     {
-        # code...
+        if (!empty($id) && is_numeric($id)) {
+            
+            $this->model->delete(['id_kembali'=>$id]);
+
+            $this->redirect('pengembalian');
+        }
+        else{
+            $this->redirect('pengembalian');
+        }
     }
 
     public function getPeminjaman($id)
