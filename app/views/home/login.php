@@ -26,7 +26,7 @@
                         <form role="form" id="frm_login" name="frm_login" method="post" action="<?=$url;?>">
                             <fieldset>
                                 <div>
-                                    <?=(isset($error))?$error:'';?>
+                                    <?=(isset($error))?'<div class="alert alert-danger" role="alert">'.$error.'</div>':'';?>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Username" name="username" type="text" autofocus="">
